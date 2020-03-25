@@ -16,8 +16,15 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(
                     R.id.fragment,
                 HomeFragment()
-                ).addToBackStack("main").commit()
+                ).addToBackStack(null).commit()
         }
 
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(supportFragmentManager.backStackEntryCount == 0){
+            finish()
+        }
     }
 }

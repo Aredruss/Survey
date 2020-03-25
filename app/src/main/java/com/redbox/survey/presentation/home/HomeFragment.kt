@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import com.redbox.survey.R
 import com.redbox.survey.presentation.questions.QuestionFragment
@@ -20,12 +21,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        start_test_btn.setOnClickListener {
+        home_start_cv.setOnClickListener {
             val manager = activity!!.supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.fragment,
                     QuestionFragment()
-                ).addToBackStack("test").commit()
+                ).addToBackStack(null).commit()
         }
     }
 }
