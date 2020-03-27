@@ -22,7 +22,7 @@ import java.io.InputStream
 
 class QuestionFragment : Fragment() {
 
-    lateinit var viewModel: QuestionViewModel
+    private lateinit var viewModel: QuestionViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,7 +72,7 @@ class QuestionFragment : Fragment() {
                     Handler().postDelayed({
                         viewModel.getNext()
                         result_tv.visibility = View.INVISIBLE
-                    }, 1000)
+                    }, 500)
                 }
                 is QuestionState.Incorrect -> {
                     result_tv.text = "Неверно"
@@ -86,15 +86,23 @@ class QuestionFragment : Fragment() {
                     Handler().postDelayed({
                         viewModel.getNext()
                         result_tv.visibility = View.INVISIBLE
-                    }, 1000)
+                    }, 500)
                 }
                 is QuestionState.Finish -> {
                     for (i in answerButtons) {
                         i.isEnabled = false
                     }
                     question_skip_btn.isEnabled = false
+
+                    val bundle = Bundle()
+                    bundle.putParcelable("results", viewModel.test.value)
+
+                    var frag = ResultsFragment()
+
+                    frag.arguments = bundle
                     activity!!.supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment, ResultsFragment()).addToBackStack(null).commit()
+                        .replace(R.id.fragment, frag )
+                        .addToBackStack(null).commit()
                 }
             }
         })

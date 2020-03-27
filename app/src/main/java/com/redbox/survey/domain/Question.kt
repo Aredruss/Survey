@@ -1,3 +1,7 @@
 package com.redbox.survey.domain
 
-data class Question(val picture: String, val answer: String)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Question(val picture: String, val answer: String) : Parcelable

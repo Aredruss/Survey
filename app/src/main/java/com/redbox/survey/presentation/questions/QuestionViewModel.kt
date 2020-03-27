@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.redbox.survey.domain.QuestionRepository
-import java.util.Collections.shuffle
+import com.redbox.survey.domain.Test
 
 class QuestionViewModel() : ViewModel() {
 
@@ -13,7 +13,13 @@ class QuestionViewModel() : ViewModel() {
     val test = MutableLiveData<Test>()
 
     init {
-        test.value = Test(0, 0, QuestionRepository.generateTest(), ArrayList<Int>())
+        test.value = Test(
+            0,
+            0,
+            QuestionRepository.generateTest(),
+            ArrayList<Int>(),
+            ArrayList<String>()
+        )
         questionNum.value = -1
         questionState.value = QuestionState.Initial()
     }
@@ -30,6 +36,7 @@ class QuestionViewModel() : ViewModel() {
     }
 
     fun check(mAnswer: String) {
+        test!!.value!!.answers.add(mAnswer)
         if (test.value!!.lineUp[questionNum.value!!].answer.equals(mAnswer.toLowerCase())) {
             questionState.postValue(QuestionState.Correct)
             test.value!!.correct++
