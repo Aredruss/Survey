@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Survey</string>
+    <string name="tasks">Боевые действия и задачи войск</string>
+    <string name="control">Пункты управления и связи</string>
+    <string name="tech">Техника и вооружение</string>
+    <string name="fort">Фортификационные сооруженные</string>
+    <string name="misc">Разнообразные знаки</string>
 </resources>

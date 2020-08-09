@@ -3,14 +3,10 @@ package com.redbox.survey.presentation.questions
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -20,7 +16,7 @@ import com.redbox.survey.presentation.results.ResultsFragment
 import kotlinx.android.synthetic.main.fragment_question.*
 import java.io.InputStream
 
-class QuestionFragment : Fragment() {
+class QuestionFragment(private val topic: String) : Fragment() {
 
     private lateinit var viewModel: QuestionViewModel
 
@@ -70,8 +66,8 @@ class QuestionFragment : Fragment() {
                     )
                     result_tv.visibility = View.VISIBLE
                     Handler().postDelayed({
-                        viewModel.getNext()
                         result_tv.visibility = View.INVISIBLE
+                        viewModel.getNext()
                     }, 500)
                 }
                 is QuestionState.Incorrect -> {
@@ -97,11 +93,11 @@ class QuestionFragment : Fragment() {
                     val bundle = Bundle()
                     bundle.putParcelable("results", viewModel.test.value)
 
-                    var frag = ResultsFragment()
+                    var frag = ResultsFragment(topic)
 
                     frag.arguments = bundle
                     activity!!.supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment, frag )
+                        .replace(R.id.fragment, frag)
                         .addToBackStack(null).commit()
                 }
             }
@@ -131,7 +127,7 @@ class QuestionFragment : Fragment() {
     }
 
     private fun loadImage(image: String) {
-        val stream: InputStream = activity?.assets!!.open(image)
+        val stream: InputStream = activity?.assets!!.open("$topic/$image")
         val d = Drawable.createFromStream(stream, null)
         question_sign_iv.setImageDrawable(d)
         stream.close()

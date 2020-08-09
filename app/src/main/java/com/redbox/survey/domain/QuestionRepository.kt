@@ -1,13 +1,14 @@
 package com.redbox.survey.domain
 
-import kotlin.collections.ArrayList
-
 object QuestionRepository {
 
     lateinit var images: List<String>
 
     fun setTest(ims: List<String>) {
-        images = ims.filter { it.contains(".png") }
+        images = ims.shuffled()
+        if (images.size > 10) {
+            images = images.subList(0, 10)
+        }
     }
 
     fun generateTest(): ArrayList<Question> {

@@ -4,9 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.survey.R
+import com.redbox.survey.domain.QuestionRepository
 import com.redbox.survey.presentation.questions.QuestionFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -21,12 +22,18 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        home_start_cv.setOnClickListener {
-            val manager = activity!!.supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.fragment,
-                    QuestionFragment()
-                ).addToBackStack(null).commit()
-        }
+
+        rv_test_topics.layoutManager = LinearLayoutManager(activity)
+        rv_test_topics.adapter = TestTopicRvAdapter(this::startTestOnTopic)
+
+    }
+
+    private fun startTestOnTopic(subfolder: String) {
+        QuestionRepository.setTest(activity?.assets?.list(subfolder)!!.asList())
+        val manager = activity!!.supportFragmentManager.beginTransaction()
+            .replace(
+                R.id.fragment,
+                QuestionFragment(subfolder)
+            ).addToBackStack(null).commit()
     }
 }

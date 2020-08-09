@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.redbox.survey.domain.QuestionRepository
 import com.redbox.survey.domain.Test
 
-class QuestionViewModel() : ViewModel() {
+class QuestionViewModel : ViewModel() {
 
     val questionNum = MutableLiveData<Int>()
     val questionState = MutableLiveData<QuestionState>()
@@ -36,7 +36,7 @@ class QuestionViewModel() : ViewModel() {
     }
 
     fun check(mAnswer: String) {
-        test!!.value!!.answers.add(mAnswer)
+        test.value!!.answers.add(mAnswer)
         if (test.value!!.lineUp[questionNum.value!!].answer.equals(mAnswer.toLowerCase())) {
             questionState.postValue(QuestionState.Correct)
             test.value!!.correct++

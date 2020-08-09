@@ -35,6 +35,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="18dp"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -43,41 +44,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="Ваш ответ"
+                android:text="Ваш ответ:"
                 android:textColor="@color/colorPrimary"
                 app:layout_constraintLeft_toRightOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="@id/imageView" />
 
             <TextView
                 android:id="@+id/user_answer_tv"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginTop="5dp"
                 android:text="_____"
                 android:textColor="@color/colorPrimary"
-                app:layout_constraintLeft_toRightOf="@id/question_answer_tv"
-                app:layout_constraintTop_toTopOf="@id/imageView" />
-
-            <TextView
-                android:id="@+id/question_solution_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_bold"
-                android:text="Верный ответ"
-                android:textColor="@color/colorPrimary"
-                app:layout_constraintLeft_toLeftOf="@id/question_answer_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/question_answer_tv"
                 app:layout_constraintTop_toBottomOf="@id/question_answer_tv" />
 
             <TextView
-                android:id="@+id/user_solution_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/question_solution_tv"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Верный ответ:"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintLeft_toLeftOf="@id/question_answer_tv"
+                app:layout_constraintTop_toBottomOf="@id/user_answer_tv" />
+
+            <TextView
+                android:id="@+id/user_solution_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="_____"
                 android:textColor="@color/colorPrimary"
-                app:layout_constraintLeft_toRightOf="@id/question_answer_tv"
-                app:layout_constraintTop_toTopOf="@id/question_solution_tv" />
+                app:layout_constraintStart_toStartOf="@id/question_answer_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/question_solution_tv" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

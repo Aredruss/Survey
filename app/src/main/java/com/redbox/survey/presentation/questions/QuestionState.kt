@@ -1,7 +1,5 @@
 package com.redbox.survey.presentation.questions
 
-import com.redbox.survey.domain.Question
-
 sealed class QuestionState {
     class Initial : QuestionState()
     object Correct : QuestionState()

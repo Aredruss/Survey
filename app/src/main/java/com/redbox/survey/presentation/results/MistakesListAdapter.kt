@@ -8,11 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.redbox.survey.R
 import com.redbox.survey.domain.Test
-import kotlinx.android.synthetic.main.fragment_question.*
 import kotlinx.android.synthetic.main.item_mistakes.view.*
 import java.io.InputStream
 
-class MistakesListAdapter(val test: Test) :
+class MistakesListAdapter(val test: Test, val topic: String) :
     RecyclerView.Adapter<MistakesListAdapter.MistakesViewHolder>() {
 
     class MistakesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,7 +49,7 @@ class MistakesListAdapter(val test: Test) :
             )
         }
         val stream: InputStream =
-            holder.itemView.context.assets!!.open(test.lineUp[position].picture)
+            holder.itemView.context.assets!!.open("$topic/${test.lineUp[position].picture}")
         val d = Drawable.createFromStream(stream, null)
         holder.image.setImageDrawable(d)
         stream.close()

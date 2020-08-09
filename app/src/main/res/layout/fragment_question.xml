@@ -3,7 +3,136 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:isScrollContainer="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/result_tv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/progress_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="Вопрос 1 из 10"
+                android:textColor="#030303"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/question_sign_iv"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="30dp"
+                android:background="@color/colorWhiteFont"
+                android:elevation="5dp"
+                app:layout_constraintTop_toTopOf="@id/progress_tv"
+                tools:layout_editor_absoluteX="10dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/question_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/roboto_light_italic"
+                android:text="Какой символ изображен на рисунке?"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/question_sign_iv" />
+
+
+            <EditText
+                android:id="@+id/answer_et"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/roboto_light"
+                android:hint="БТР, Танк, ПТУРС.."
+                android:imeOptions="actionDone"
+                android:lines="1"
+                android:singleLine="true"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/question_tv" />
+
+            <Button
+                android:id="@+id/question_first_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Ответ 1"
+                android:textColor="@color/colorWhiteFont"
+                app:layout_constraintTop_toBottomOf="@id/question_tv" />
+
+            <Button
+                android:id="@+id/question_second_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Ответ 2"
+                android:textColor="@color/colorWhiteFont"
+                app:layout_constraintTop_toBottomOf="@id/question_first_btn" />
+
+            <Button
+                android:id="@+id/question_third_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Ответ 3"
+                android:textColor="@color/colorWhiteFont"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/question_second_btn" />
+
+            <Button
+                android:id="@+id/question_fourth_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Ответ 4"
+                android:textColor="@color/colorWhiteFont"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/question_third_btn" />
+
+            <Button
+                android:id="@+id/question_skip_btn"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:text="Пропустить"
+                android:textColor="@color/colorAccent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/question_fourth_btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/result_tv"
@@ -19,124 +148,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/progress_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/roboto_light"
-        android:text="Вопрос 1 из 10"
-        android:textColor="#030303"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/result_tv" />
-
-    <ImageView
-        android:id="@+id/question_sign_iv"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="30dp"
-        android:background="@color/colorWhiteFont"
-        android:elevation="5dp"
-        app:layout_constraintTop_toTopOf="@id/progress_tv"
-        tools:layout_editor_absoluteX="10dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/question_tv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/roboto_light_italic"
-        android:text="Какой символ изображен на рисунке?"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/question_sign_iv" />
-
-
-    <EditText
-        android:id="@+id/answer_et"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:fontFamily="@font/roboto_light"
-        android:hint="БТР, Танк, ПТУРС.."
-        android:imeOptions="actionDone"
-        android:lines="1"
-        android:singleLine="true"
-        android:visibility="gone"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question_tv" />
-
-    <Button
-        android:id="@+id/question_first_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:padding="15dp"
-        android:text="Ответ 1"
-        android:textColor="@color/colorWhiteFont"
-        app:layout_constraintTop_toBottomOf="@id/question_tv" />
-
-    <Button
-        android:id="@+id/question_second_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:padding="15dp"
-        android:text="Ответ 2"
-        android:textColor="@color/colorWhiteFont"
-        app:layout_constraintTop_toBottomOf="@id/question_first_btn" />
-
-    <Button
-        android:id="@+id/question_third_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:padding="15dp"
-        android:text="Ответ 3"
-        android:textColor="@color/colorWhiteFont"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question_second_btn" />
-
-    <Button
-        android:id="@+id/question_fourth_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="30dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:padding="15dp"
-        android:text="Ответ 4"
-        android:textColor="@color/colorWhiteFont"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/question_third_btn" />
-
-    <Button
-        android:id="@+id/question_skip_btn"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:text="Пропустить"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
