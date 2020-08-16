@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.home
+package com.redbox.survey.ui.home
 
 import android.view.LayoutInflater
 import android.view.View

@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.register
+package com.redbox.survey.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

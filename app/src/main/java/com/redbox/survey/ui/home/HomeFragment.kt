@@ -1,5 +1,7 @@
-package com.redbox.survey.presentation.home
+package com.redbox.survey.ui.home
 
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.survey.R
 import com.redbox.survey.domain.QuestionRepository
-import com.redbox.survey.presentation.questions.QuestionFragment
+import com.redbox.survey.ui.questions.QuestionFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
@@ -25,7 +27,6 @@ class HomeFragment : Fragment() {
 
         rv_test_topics.layoutManager = LinearLayoutManager(activity)
         rv_test_topics.adapter = TestTopicRvAdapter(this::startTestOnTopic)
-
     }
 
     private fun startTestOnTopic(subfolder: String) {

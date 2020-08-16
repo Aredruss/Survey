@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.questions
+package com.redbox.survey.ui.questions
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.redbox.survey.R
-import com.redbox.survey.presentation.results.ResultsFragment
+import com.redbox.survey.ui.results.ResultsFragment
 import kotlinx.android.synthetic.main.fragment_question.*
 import java.io.InputStream
 
@@ -123,12 +123,20 @@ class QuestionFragment(private val topic: String) : Fragment() {
     }
 
     private fun checkAnswer(answer: String) {
+        question_first_btn.isEnabled = false
+        question_second_btn.isEnabled = false
+        question_third_btn.isEnabled = false
+        question_fourth_btn.isEnabled = false
         viewModel.check(answer)
     }
 
     private fun loadImage(image: String) {
         val stream: InputStream = activity?.assets!!.open("$topic/$image")
         val d = Drawable.createFromStream(stream, null)
+        question_first_btn.isEnabled = true
+        question_second_btn.isEnabled = true
+        question_third_btn.isEnabled = true
+        question_fourth_btn.isEnabled = true
         question_sign_iv.setImageDrawable(d)
         stream.close()
     }

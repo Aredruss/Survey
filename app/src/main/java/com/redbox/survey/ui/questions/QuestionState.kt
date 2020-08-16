@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.questions
+package com.redbox.survey.ui.questions
 
 sealed class QuestionState {
     class Initial : QuestionState()

@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.splash
+package com.redbox.survey.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.os.Handler
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import com.redbox.survey.R
-import com.redbox.survey.presentation.MainActivity
+import com.redbox.survey.ui.MainActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : AppCompatActivity() {

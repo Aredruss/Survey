@@ -7,4 +7,5 @@
     <color name="colorBackGround">#EEEEEE</color>
     <color name="colorCorrect">#8BC34A</color>
     <color name="colorIncorrect">#C82636</color>
+    <color name="colorTransparetn">#9A000000</color>
 </resources>

@@ -1,9 +1,9 @@
-package com.redbox.survey.presentation
+package com.redbox.survey.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.redbox.survey.R
-import com.redbox.survey.presentation.home.HomeFragment
+import com.redbox.survey.ui.home.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {

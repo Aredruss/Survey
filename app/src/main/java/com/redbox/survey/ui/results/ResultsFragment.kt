@@ -1,4 +1,4 @@
-package com.redbox.survey.presentation.results
+package com.redbox.survey.ui.results
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.redbox.survey.R
 import com.redbox.survey.domain.TestTopicsRepository
-import com.redbox.survey.presentation.home.HomeFragment
-import com.redbox.survey.presentation.questions.QuestionFragment
+import com.redbox.survey.ui.home.HomeFragment
+import com.redbox.survey.ui.questions.QuestionFragment
 import kotlinx.android.synthetic.main.fragment_results.*
 
 class ResultsFragment(private val topic: String) : Fragment() {
