@@ -38,6 +38,7 @@
             android:id="@+id/theme_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
             android:text="Основы военной топографии"
             android:textAlignment="center"
             android:textSize="20sp"

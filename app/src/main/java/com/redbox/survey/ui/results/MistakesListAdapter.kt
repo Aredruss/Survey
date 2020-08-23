@@ -47,6 +47,12 @@ class MistakesListAdapter(val test: Test, val topic: String) :
                     R.color.colorIncorrect
                 )
             )
+        } else {
+            holder.userAnswer.setTextColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.colorCorrect
+                ))
         }
         val stream: InputStream =
             holder.itemView.context.assets!!.open("$topic/${test.lineUp[position].picture}")

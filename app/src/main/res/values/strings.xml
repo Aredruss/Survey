@@ -4,5 +4,16 @@
     <string name="control">Пункты управления и связи</string>
     <string name="tech">Техника и вооружение</string>
     <string name="fort">Фортификационные сооруженные</string>
-    <string name="misc">Разнообразные знаки</string>
+    <string name="lines">Разграничительные Линии</string>
+    <string name="moving">Передвижение войск</string>
+    <string name="vmf">Вооружение и действия морских войск</string>
+    <string name="rockets">Вооружения и действия ракетных войск</string>
+    <string name="space">Космические войска</string>
+    <string name="connection">Войска связи</string>
+    <string name="air">Вооружение и действия ВВС</string>
+    <string name="nuclear">Войска радиационной и химической защиты</string>
+    <string name="squads">Соединения и воинские части ядерного обеспечения</string>
+    <string name="engine">Инженерные войска</string>
+    <string name="cover">Маскировка</string>
+    <string name="radio">Соединения и воинские части радиоэлектронной борьбы</string>
 </resources>
